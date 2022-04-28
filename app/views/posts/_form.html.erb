@@ -1,0 +1,19 @@
+<%= form_for @post, html: { multipart: true }, class: "w-full max-w-sm" do |f| %>
+  <div class="md:flex md:items-center mb-2">
+    <%= f.label :content, "Content", class: "block text-gray-500 font-bold md:text-right pr-4" %><br>
+  </div>
+  <div>
+    <%= f.text_area :content, class: "resize-none" %> <br>
+  </div>
+  <div class="md:flex md:items-center mb-2">
+    <p class="block text-gray-500 font-bold md:text-right pr-4">Image</p>
+  </div>
+  <div>
+    <%= f.file_field :image %> <br>
+    <%= f.hidden_field :image_cache %><br>
+  </div>
+  
+
+  <%= f.submit class: "bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-2 rounded my-4" %>
+<% end %>
+
