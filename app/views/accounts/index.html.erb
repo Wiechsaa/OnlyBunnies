@@ -1,0 +1,15 @@
+<div class="flex flex-col h-screen my-auto items-center bgimg bg-cover my-8">
+  <% @posts.each do |post| %>
+    <div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 m-8 w-3/5	" >
+      <div class="p-2 font-semibold border-b-2">
+        <%= post.account.username %>
+      </div>
+      <div style="text-align: center" >
+        <img src="<%=post.image.url%>" alt="Post picture", class="object-contain w-full">
+      </div>
+      <div class="p-5 border-t-2">
+        <%= post.account.username %>: <%= post.content %>
+      </div>
+    </div>
+  <% end %>
+</div>
