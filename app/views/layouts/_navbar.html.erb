@@ -4,31 +4,34 @@
       <% if account_signed_in? %>
         <%= 
           link_to "Only Bunnies", 
-          dashboard_path, class: "text-2xl font-bold hover:text-gray-700" 
+          dashboard_path, class: "text-2xl font-bold hover:text-gray-700 sm:text-large" 
         %>
       <% else %>
         <%= 
           link_to "Only Bunnies", 
-          root_path, class: "text-2xl font-bold hover:text-gray-700" 
+          root_path, class: "text-2xl font-bold hover:text-gray-700 sm:text-large" 
         %>
       <% end %>
     </li>
 
     <% if account_signed_in? %>
-      <li class="mr-6">
-        <%= link_to "Your Profile", '#' %>
+      <li class="sm:mr-2 mr-6">
+        <%= link_to "Your Profile", profile_path(current_account.username) %>
       </li>
-      <li class="mr-6">
+      <li class="sm:mr-2 mr-6">
         <%= link_to "New Post", new_post_path %>
+      </li>
+      <li class="sm:mr-2 mr-6">
+        <%= link_to "Accounts", profiles_path %>
       </li>
     <% end %>
 
     <% if account_signed_in? %>
-      <li class="mr-6 ml-auto">
+      <li class="sm:mr-2 mr-6 ml-auto">
           <%= button_to "Log Out", destroy_account_session_path, method: :delete %>
       </li>
     <% else %>
-      <li class="mr-6 ml-auto">
+      <li class="sm:mr-2 mr-6 ml-auto">
         <%= link_to "Log In", new_account_session_path %>
       </li>
     <% end %>

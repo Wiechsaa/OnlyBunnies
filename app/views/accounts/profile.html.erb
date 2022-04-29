@@ -1,0 +1,49 @@
+<div>
+  <%# User header %>
+  <div class="max-w-screen-lg bg-white shadow-2xl rounded-lg mx-auto text-center py-12 mt-4">
+    <div class="flex justify-center pb-4">
+      <img src="<%= @account.image.url %>" alt="" class="max-w-full h-48 rounded-full border-2">
+    </div>
+    
+    <h2 class="text-3xl leading-9 font-bold tracking-tight text-gray-800 sm:text-4xl sm:leading-10 mb-4">
+      <%= @account.username %>
+    </h2>
+    <% if current_account == @account %>
+      <%= link_to "Edit profile", edit_account_registration_path(@account), class: "bg-white hover:bg-gray-100 py-1 px-1 rounded border-2" %>
+    <% end %>
+    <div class="mt-4 flex justify-center">
+      <div class="">
+        <p>
+          <%= @account.posts.count %> posts | <%= @account.total_followers %> followers | <%= @account.total_following %> following
+        </p>
+        <p class="mt-8 px-6">
+          About: <br />
+          <%= @account.description %>
+        </p>
+      </div>
+    </div> 
+  </div>
+
+  <%# Posts %>
+  <div class="flex flex-col my-auto items-center bgimg bg-cover my-8 mb-8">
+    <% @posts.each do |post| %>
+      <div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 m-8 w-3/5	">
+        <div class="p-2 font-semibold border-b-2 bg-gray-100 h-16">
+          <p>
+            <img src="<%= @account.image.url %>" alt="" class="w-12 h-12 rounded-full border-2 float-left">
+            <p class="pt-2.5">
+              <%= post.account.username %>
+            </p>
+            
+          </p> 
+        </div>
+        <div style="text-align: center" >
+          <img src="<%= post.image.url %>" alt="Post picture", class="object-contain w-full">
+        </div>
+        <div class="p-5 border-t-2 bg-gray-100">
+          <%= post.account.username %>: <%= post.content %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

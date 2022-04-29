@@ -14,6 +14,19 @@
       <%= f.text_field :username %>
     </div>
 
+    <div class="field">
+      <%= f.label :description %><br />
+      <%= f.text_area :description, cols: 23, class: "resize-none"  %>
+    </div>
+
+    <div class="md:flex md:items-center mb-2">
+      <p class="block text-gray-500 font-bold md:text-right pr-4">Profile picture</p>
+    </div>
+    <div>
+      <%= f.file_field :image %> <br>
+      <%= f.hidden_field :image_cache %><br>
+    </div>
+
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
@@ -38,11 +51,11 @@
     </div>
 
     <div class="actions">
-      <%= f.submit "Update", class: "bg-green-600 rounded-md m-4 p-2" %>
+      <%= f.submit "Update", class: "bg-green-700 rounded-md m-4 p-2" %>
     </div>
   <% end %>
 
-  <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "bg-red-600 rounded-md m-4 p-2" %></p>
+  <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "bg-red-700 rounded-md m-4 p-2" %></p>
 
 
 </div>
