@@ -1,24 +1,4 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Only Bunnies
+OnlyBunnies is an Instagram inspired web app for sharing your beautiful bunnies! <br />
+This is an early but working prototype; I would love to hear your feedback. <br />
+Feel free to check it out! <br />
