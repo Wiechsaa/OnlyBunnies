@@ -1,5 +1,9 @@
 class Post < ApplicationRecord
-  mount_uploader :image, ImageUploader
+  default_scope { order created_at: :desc }
   scope :active, -> { where active: true }
+
+  mount_uploader :image, ImageUploader
+
   belongs_to :account
+  has_many :likes
 end

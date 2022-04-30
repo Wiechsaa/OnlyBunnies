@@ -1,0 +1,6 @@
+<% if @success %>
+  $(".like-<%= @post_id %>").addClass("text-red-500");
+<% else %>
+  $(".like-<%= @post_id %>").removeClass("text-red-500");
+<% end %>
+$("#post-<%= @post_id %>-likes").text("<%= @post_likes %> likes");
