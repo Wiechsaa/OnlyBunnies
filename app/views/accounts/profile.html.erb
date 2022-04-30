@@ -40,7 +40,21 @@
           <img src="<%= post.image.url %>" alt="Post picture", class="object-contain w-full">
         </div>
         <div class="p-5 border-t-2 bg-gray-100">
-          <%= post.account.username %>: <%= post.content %>
+          <p>
+            <p data-id="<%= post.id %>" 
+              class="like like-<%= post.id %> <%= "text-red-500" if post_liked_by_user? post.id %> text-xl inline hover:text-red-500 hover:cursor-pointer"> 
+              ♥️
+            </p>
+            <p class="inline" id="post-<%= post.id %>-likes">
+              <%= post.total_likes_count %> likes
+            </p>
+          </p>
+        <p class="font-bold inline">
+          <%= post.account.username %>:
+        </p> <%= post.content %>
+        <p class="text-small font-thin mt-2">
+          <%= time_ago_in_words post.created_at %> ago
+        </p>
         </div>
       </div>
     <% end %>
