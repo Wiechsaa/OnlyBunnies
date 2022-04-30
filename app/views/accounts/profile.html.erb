@@ -10,6 +10,11 @@
     </h2>
     <% if current_account == @account %>
       <%= link_to "Edit profile", edit_account_registration_path(@account), class: "bg-white hover:bg-gray-100 py-1 px-1 rounded border-2" %>
+    <% else %>
+      <%= form_tag follow_account_path, method: :post do %>
+          <%= hidden_field_tag :follow_id, @account.id %>
+          <%= submit_tag "Follow", class: "bg-white hover:bg-gray-100 py-1 px-1 rounded border-2" %>
+      <% end %>
     <% end %>
     <div class="mt-4 flex justify-center">
       <div class="">

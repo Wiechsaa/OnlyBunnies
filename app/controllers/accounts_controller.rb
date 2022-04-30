@@ -17,6 +17,16 @@ class AccountsController < ApplicationController
     @posts = @account.posts.active
   end
 
+  def follow_account
+    account_id = params[:follow_id]
+    if Follow.create!(follower_id: current_account.id, following_id: account_id)
+      flash[:success] = "Followed!"
+    else
+      flash[:danger] = "Unable to follow this user."
+    end
+    redirect_to dashboard_path
+  end 
+
   private 
 
   def set_account

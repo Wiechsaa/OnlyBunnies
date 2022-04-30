@@ -6,15 +6,15 @@ class Account < ApplicationRecord
 
   has_many :posts
   has_many :likes
+  has_many :follows
 
   mount_uploader :image, ImageUploader
 
-  # temporary
   def total_followers
-    0
+    Follow.where(follower_id: self.id).count
   end
   def total_following
-    0
+    Follow.where(following_id: self.id).count
   end
 
 end
