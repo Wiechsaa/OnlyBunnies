@@ -1,6 +1,6 @@
 class AccountsController < ApplicationController
   before_action :authenticate_account!
-  before_action :set_account, only: [:profile]
+  before_action :set_account, only: [:profile, :index]
 
   def profiles
     # all accounts

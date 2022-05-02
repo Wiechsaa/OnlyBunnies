@@ -15,36 +15,5 @@
 </script>
 
 <div class="flex flex-col h-screen my-auto items-center bgimg bg-cover my-8">
-  <% @posts.each do |post| %>
-    <div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 m-8 w-3/5	" >
-      <div class="p-2 font-semibold border-b-2 bg-gray-100 h-16">
-        <p>
-          <img src="<%= post.account.image.url %>" alt="" class="w-12 h-12 rounded-full border-2 float-left">
-          <p class="pt-2.5 pl-2">
-            <%= link_to post.account.username, profile_path(post.account.username) %>
-          </p>
-        </p> 
-      </div>
-      <div style="text-align: center" >
-        <img src="<%=post.image.url%>" alt="Post picture", class="object-contain w-full">
-      </div>
-      <div class="p-5 border-t-2 bg-gray-100">
-        <p>
-          <p data-id="<%= post.id %>" 
-            class="like like-<%= post.id %> <%= "text-red-500" if post_liked_by_user? post.id %> text-xl inline hover:text-red-500 hover:cursor-pointer"> 
-            ♥️
-          </p>
-          <p class="inline" id="post-<%= post.id %>-likes">
-            <%= post.total_likes_count %> likes
-          </p>
-        </p>
-        <p class="font-bold inline">
-          <%= post.account.username %>:
-        </p> <%= post.content %>
-        <p class="text-small font-thin mt-2">
-          <%= time_ago_in_words post.created_at %> ago
-        </p>
-      </div>
-    </div>
-  <% end %>
+  <%= render "post", collection: @posts%>
 </div>
