@@ -10,11 +10,13 @@ class Account < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
+  validates :username, presence: true, length: { minimum: 3, maximum: 25 }
+
   def total_followers
-    Follow.where(follower_id: self.id).count
-  end
-  def total_following
-    Follow.where(following_id: self.id).count
+    Follow.where(follower_id: id).count
   end
 
+  def total_following
+    Follow.where(following_id: id).count
+  end
 end
