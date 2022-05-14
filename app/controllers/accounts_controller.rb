@@ -14,6 +14,7 @@ class AccountsController < ApplicationController
 
   def profile
     # user profile
+    @following = Account.where(follower_id: current_account.id)
     @posts = @account.posts.active
   end
 

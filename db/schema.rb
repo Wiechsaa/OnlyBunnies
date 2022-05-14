@@ -29,7 +29,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_30_162258) do
     t.datetime "updated_at", null: false
     t.string "username", limit: 20
     t.string "image"
-    t.string "description"
+    t.text "description"
     t.index ["email"], name: "index_accounts_on_email", unique: true
     t.index ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true
   end
